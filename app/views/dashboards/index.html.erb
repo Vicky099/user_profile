@@ -3,6 +3,19 @@
 <table>
 	<tr>
 		<td>
+			Image
+		</td>
+		<td>
+			<% if current_user.avatar.present? %>
+				<%= image_tag(current_user.avatar.url, size: '100') %>
+			<% else %>
+				<sm><i>No Photo uploaded</i></sm>
+			<% end %>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
 			Name
 		</td>
 		<td>
@@ -27,6 +40,17 @@
 			<%= current_user.address %>
 		</td>
 	</tr>
+
+	<tr>
+		<td>
+			Mobile Number
+		</td>
+		<td>
+			<%= current_user.mobile_number %>
+		</td>
+	</tr>
+
+
 
 	<tr>
 		<td>

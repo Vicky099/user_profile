@@ -10,6 +10,13 @@ class ApplicationController < ActionController::Base
 		new_user_session_path
 	end
 
+	def check_authorization
+		if current_user.role.to_s != "admin"
+			flash[:alert] = "You Don't have access for ths tab."
+			redirect_to dashboards_path
+		end
+	end
+
 	protected
 
 	def configure_permitted_parameters

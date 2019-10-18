@@ -13,9 +13,11 @@
 		<div class="collapse navbar-collapse" id="myNavbar">
 	  		<ul class="nav navbar-nav navbar-right">
 	  			<% if user_signed_in? %>
-					<li>
-						<%= link_to "User's List", "#"%>
-					</li>
+	  				<% if current_user.is_admin? %>
+						<li>
+							<%= link_to "User's List", users_path %>
+						</li>
+					<% end %>
 					<li>
 						<%= link_to logout_path, method: :delete do %>
 		  					<span class="glyphicon glyphicon-off"> </span>

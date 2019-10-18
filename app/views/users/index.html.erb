@@ -1,0 +1,29 @@
+
+<h2> User Listing</h2>
+<table class="table table-bordered">
+	<tr>
+		<th>Name</th>
+		<th>Email</th>
+		<th>Address</th>
+		<th>Action</th>
+	</tr>
+	<% @users.each do |user| %>
+		<tr>
+			<td>
+				<%= user.name %>
+			</td>
+
+			<td>
+				<%= user.email %>
+			</td>
+
+			<td>
+				<%= user.address %>
+			</td>
+
+			<td>
+				<%= link_to "Edit",edit_user_path(user) %>
+			</td>
+		</tr>
+	<% end %>
+</table>

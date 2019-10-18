@@ -1,0 +1,29 @@
+ <%= form_for @user, :url => user_path, :method => :put, :html => {:class => "form-horizontal"} do |f| %>
+
+	<div class="field">
+	    <%= f.label :name %><br />
+	    <%= f.text_field :name, autofocus: true, autocomplete: "Name", readonly: true %>
+	</div>
+
+	<div class="field">
+	    <%= f.label :email %><br />
+	    <%= f.email_field :email, autofocus: true, autocomplete: "Email", readonly: true %>
+	</div>
+
+	<div class="field">
+	    <%= f.label :address %><br />
+	    <%= f.text_area :address, autofocus: true, autocomplete: "Address" %>
+	</div>
+
+	<% if own_record(current_user, @user) %>
+		<div class="field">
+			<%= f.label :mobile_number %><br/>
+			<%= f.text_field :mobile_number, autocomplete: "Mobile Number" %>
+		</div>
+	<% end %>
+	<br/>
+	<div class="actions">
+	    <%= f.submit "Update", class: 'btn btn-success'%>
+	    <%= link_to "Back", :back, class: 'btn btn-default' %>
+	</div>
+<% end %>
